@@ -28,7 +28,7 @@ if [ ! -d $WORK_DIR/ngrok ]; then
 fi
 
 
-// clear all
+# clear all
 
 rm -rf /tmp/*
 rm -rf /vagrant
