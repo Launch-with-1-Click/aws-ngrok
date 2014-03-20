@@ -26,9 +26,12 @@ You'll run the server with the following command.
 ngrokd -domain="example.com"
 ```
 
-### 4. Download the client
+### 4. Download the client software
 
-Please down load cliaent software from the following url.
+Please download client software from the following url.
+
+* windows_amd64.zip
+* darwin_amd64.zip
 
 ```
 http://example.com:8080/
