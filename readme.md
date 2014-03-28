@@ -6,14 +6,15 @@
 
 Launch EC2 virtual machine.
 
-### 2. Inbound ports
+#### Security Group
 
+* 22 - ssh
 * 80 - ngrok
 * 443 - ngrok for https
 * 4443 - Tunneling connections
 * 8080 - Clients download
 
-### 3. Modify your DNS
+### 2. Modify your DNS
 
 You need to use the DNS management tools given to you by your provider to create an A
 record which points *.example.com to the IP address of the server where you will run ngrokd.
