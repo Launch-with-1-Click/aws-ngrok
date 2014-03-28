@@ -3,7 +3,7 @@
 set -ex
 
 WORK_DIR=`pwd`
-PLATHOMES=('windows' 'darwin' 'linux')
+PLATFORMS=('windows' 'darwin' 'linux')
 
 apt-get update -y
 apt-get install git make mercurial gcc apache2 chkconfig zip -y
@@ -49,7 +49,7 @@ fi
 
 cd $WORK_DIR/go/src
 ./all.bash
-for os in ${PLATHOMES[@]}; do
+for os in ${PLATFORMS[@]}; do
     GOOS=$os GOARCH=amd64 CGO_ENABLED=0 ./make.bash --no-clean
 done
 
@@ -71,12 +71,12 @@ fi
 make server
 mv $WORK_DIR/ngrok/bin/ngrokd /usr/local/bin/
 
-for os in ${PLATHOMES[@]}; do
+for os in ${PLATFORMS[@]}; do
     GOOS=$os GOARCH=amd64 make client
 done
 
 cd $WORK_DIR/ngrok/bin
-for os in ${PLATHOMES[@]}; do
+for os in ${PLATFORMS[@]}; do
     if [ -d $os\_amd64 ]; then
         zip -r $os\_amd64.zip $os\_amd64
         mv $os\_amd64.zip /var/www/
