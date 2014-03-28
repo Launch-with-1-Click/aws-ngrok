@@ -6,6 +6,13 @@ WORK_DIR=`pwd`
 PLATFORMS=('windows' 'darwin' 'linux')
 
 apt-get update -y
+apt-get -y install debconf-utils
+cat <<EOL | debconf-set-selections
+grub-pc grub-pc/install_devices multiselect /dev/vda
+grub-pc grub-pc/install_devices_empty boolean false
+EOL
+apt-get -y upgrade
+
 apt-get install git make mercurial gcc apache2 chkconfig zip -y
 
 
